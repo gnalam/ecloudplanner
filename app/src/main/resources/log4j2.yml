@@ -1,11 +1,19 @@
 Configuration:
-  status: info
+  status: error
 
   appenders:
     Console:
       name: LogToConsole
       PatternLayout:
         Pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+
+  Loggers:
+    logger:
+      - name: org.springframework.boot
+        level: error
+        additivity: false
+        AppenderRef:
+          - ref: LogToConsole
 
     Root:
       level: info
